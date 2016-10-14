@@ -5,7 +5,7 @@ browserSync = require('browser-sync').create();
 gulp.task('watch', function() {
 
   browserSync.init({
-
+    notify:false,
     server: {
       baseDir: "app"
     }
