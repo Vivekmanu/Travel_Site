@@ -23,3 +23,11 @@
       display: table;
     }
 }
+
+@define-mixin clearfix{
+  &::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
