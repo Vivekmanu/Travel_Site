@@ -18,6 +18,7 @@
     "postcss-import": "^8.1.2",
     "postcss-mixins": "^5.3.0",
     "postcss-nested": "^1.0.0",
-    "postcss-simple-vars": "^3.0.0"
+    "postcss-simple-vars": "^3.0.0",
+    "webpack": "^1.13.3"
   }
 }
