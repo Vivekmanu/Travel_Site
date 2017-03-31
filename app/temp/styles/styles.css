@@ -2,15 +2,13 @@
 
 /**
  * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in IE and iOS.
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
 
 html {
   font-family: sans-serif; /* 1 */
-  line-height: 1.15; /* 2 */
-  -ms-text-size-adjust: 100%; /* 3 */
-  -webkit-text-size-adjust: 100%; /* 3 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /**
@@ -258,7 +256,6 @@ hr {
 
 button,
 input,
-optgroup,
 select,
 textarea {
   font: inherit; /* 1 */
@@ -805,6 +802,7 @@ a {
 
   .row--equal-height-at-medium {
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
@@ -813,6 +811,7 @@ a {
 .row--equal-height-at-medium > div {
   float: none;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -821,6 +820,7 @@ a {
 
   .row--equal-height-at-large {
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
@@ -829,6 +829,7 @@ a {
 .row--equal-height-at-large > div {
   float: none;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -1057,14 +1058,14 @@ Instead edit gulp/templates/sprite */
     background-position: 36.69752421959096% 45.792307692307695%;
   }
 
-.site-footer{
+.site-footer {
   background-color: #2f5572;
   color: #FFF;
   padding: .5rem 0;
   text-align: center;
 }
 
-.site-footer__text{
+.site-footer__text {
   display: block;
   margin-bottom: 1rem;
   font-weight: 200;
@@ -1079,23 +1080,28 @@ Instead edit gulp/templates/sprite */
   }
 }
 
-.site-header{
+.site-header {
   padding: 10px 0;
   position: absolute;
   width: 100%;
   z-index: 2;
   -webkit-transition: background-color .3s ease-out;
   transition: background-color .3s ease-out;
-      }
+}
 
-.site-header--is-expanded{
+.site-header--is-expanded {
   background-color: rgba(47,85,114, .55);
 }
 
 @media (min-width: 800px) {
 
   .site-header {
+    position: fixed;
     background-color: rgba(47,85,114, .3);
+  }
+
+  .site-header--dark {
+    background-color: rgba(23, 51, 72, .85);
   }
 }
 
@@ -1106,16 +1112,20 @@ Instead edit gulp/templates/sprite */
   }
 }
 
-.site-header__logo{
-  top: 0;
+.site-header__logo {
   position: absolute;
-  background-color: #2f5572;
-  padding:  25px 36px;
+  top: 0;
   left: 50%;
   -webkit-transform: translateX(-50%) scale(.8);
           transform: translateX(-50%) scale(.8);
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
   -webkit-transform-origin: 50% 0;
           transform-origin: 50% 0;
+  background-color: #2f5572;
+  padding: 25px 36px;
 }
 
 @media (min-width: 800px) {
@@ -1125,13 +1135,18 @@ Instead edit gulp/templates/sprite */
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+
+  .site-header--dark .site-header__logo {
+    -webkit-transform: scale(.57);
+            transform: scale(.57);
+  }
 }
 
-.site-header__logo__graphic{
+.site-header__logo__graphic {
   text-indent: -9999px;
 }
 
-.site-header__menu-icon{
+.site-header__menu-icon {
   width: 20px;
   height: 19px;
   position: absolute;
@@ -1142,7 +1157,7 @@ Instead edit gulp/templates/sprite */
 
 .site-header__menu-icon::before {
   content: "";
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 20px;
@@ -1156,8 +1171,8 @@ Instead edit gulp/templates/sprite */
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
 }
 
-.site-header__menu-icon__middle{
-  position:absolute;
+.site-header__menu-icon__middle {
+  position: absolute;
   top: 8px;
   left: 0;
   width: 20px;
@@ -1170,8 +1185,8 @@ Instead edit gulp/templates/sprite */
 }
 
 .site-header__menu-icon::after {
-  content : "";
-  position:absolute;
+  content: "";
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 20px;
@@ -1192,23 +1207,23 @@ Instead edit gulp/templates/sprite */
   }
 }
 
-.site-header__menu-icon--close-x::before{
+.site-header__menu-icon--close-x::before {
   -webkit-transform: rotate(45deg) scaleX(1.25);
           transform: rotate(45deg) scaleX(1.25);
 }
 
-.site-header__menu-icon--close-x .site-header__menu-icon__middle{
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
   opacity: 0;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
 }
 
-.site-header__menu-icon--close-x::after{
+.site-header__menu-icon--close-x::after {
   -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
           transform: rotate(-45deg) scaleX(1.25) translateY(1px);
 }
 
-.site-header__menu-content{
+.site-header__menu-content {
   opacity: 0;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
@@ -1225,22 +1240,21 @@ Instead edit gulp/templates/sprite */
   .site-header__menu-content {
     opacity: 1;
     z-index: 1;
-    padding-top: 0px;
+    padding-top: 0;
     -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 
-.site-header__menu-content--is-visible{
-  -webkit-transform: scale(1);
-          transform: scale(1);
+.site-header__menu-content--is-visible {
   opacity: 1;
   z-index: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
-.primary-nav{
-
- padding-top: 10px;
+.primary-nav {
+  padding-top: 10px;
 }
 
 @media (min-width: 800px) {
@@ -1283,7 +1297,7 @@ Instead edit gulp/templates/sprite */
   }
 }
 
-.primary-nav li:last-child{
+.primary-nav li:last-child {
   padding-right: 0;
 }
 
@@ -1296,8 +1310,8 @@ Instead edit gulp/templates/sprite */
 
 .primary-nav a {
   color: #FFF;
-  text-decoration: none;
   font-weight: 300;
+  text-decoration: none;
   display: block;
   padding: 5px 8px;
   font-size: .8rem;
@@ -1308,8 +1322,12 @@ Instead edit gulp/templates/sprite */
 
   .primary-nav a {
     font-size: 1rem;
-    background-color: transparent;
     padding: 12px 0;
+    background-color: transparent;
+  }
+
+  .primary-nav a.is-current-link {
+    color: #fabb69;
   }
 }
 
