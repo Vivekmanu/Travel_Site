@@ -2,13 +2,15 @@
 
 /**
  * 1. Change the default font family in all browsers (opinionated).
- * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
 
 html {
   font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
 }
 
 /**
@@ -256,6 +258,7 @@ hr {
 
 button,
 input,
+optgroup,
 select,
 textarea {
   font: inherit; /* 1 */
@@ -638,7 +641,7 @@ a {
 
 @media (min-width: 1010px) {
 
-  .page-section--testimonials {
+  .page-section--testimonials.lazyloaded {
     background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
     background-size: cover;
   }
@@ -806,7 +809,6 @@ a {
 
   .row--equal-height-at-medium {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
@@ -815,7 +817,6 @@ a {
 .row--equal-height-at-medium > div {
   float: none;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -824,7 +825,6 @@ a {
 
   .row--equal-height-at-large {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
@@ -833,7 +833,6 @@ a {
 .row--equal-height-at-large > div {
   float: none;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
